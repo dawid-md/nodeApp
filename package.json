@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dawid-md/nodeApp#readme",
   "type": "module",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mongodb": "^4.10.0"
   }
 }
