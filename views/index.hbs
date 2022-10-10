@@ -8,12 +8,32 @@
 </head>
 <body>
     <button id="btn">Click</button>
-    <script type="module">
+    {{!-- <script type="module">
         import { mynum, client, database, getDatafromBase } from 'C:/Users/Dawid/Desktop/nodeApp/database.js'
         document.querySelector('#btn').addEventListener('click', () => {
             //let dxd = getDatafromBase()
             console.log(mynum)
         })
+    </script> --}}
+    <script>
+        console.log('Client-side code running');
+
+        const button = document.getElementById('btn');
+        button.addEventListener('click', function(e) {
+        console.log('button was clicked');
+
+        fetch('/a', {method: 'GET'})
+            .then(function(response) {
+            if(response.ok) {
+                console.log('Click was recorded');
+                return;
+            }
+            throw new Error('Request failed.');
+            })
+            .catch(function(error) {
+            console.log(error);
+            });
+        });
     </script>
     <h1>{{ userNumber }}</h1>
 </body>
