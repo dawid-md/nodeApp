@@ -1,15 +1,20 @@
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 import express from 'express'
-import { client, database, getDatafromBase } from './database.js'
-
+//import { client, database, getDatafromBase } from './database.js'
+import mongoose from 'mongoose'
 const app = express()
-app.use(express.static(__dirname))
-app.set('view engine', 'hbs')
 
+mongoose.connect('mongodb+srv://dawid-md:Creative123@cluster0.tcxhaad.mongodb.net/test')
+const db = mongoose.connection
+db.on('error', (error) => console.log(error))
+db.once('open', () => console.log('connected to database'))
+app.use(express.json())
+
+import router from './routes/routes.js'
+app.use('/routes', router)
+
+app.listen(3000, () => console.log('..................'))
+
+app.set('view engine', 'hbs')
 
 app.get('/', (req, res) => {
     res.send('home')
@@ -21,6 +26,30 @@ app.get('/a', async function(req, res){
         userNumber: sayu
     })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // app.post('/clicked', (req, res) => {
 //     let name = 'dominika'
@@ -36,7 +65,7 @@ app.get('/a', async function(req, res){
 //     });
 //   });
 
-app.listen(3000, () => console.log('..................'))
+
 
 
         //  mdb.collection('users').insertOne({
