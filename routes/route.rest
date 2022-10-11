@@ -1,1 +1,11 @@
-GET http://localhost:3000/routes
+GET http://localhost:3000/routes/
+
+###
+
+POST http://localhost:3000/routes/
+Content-Type: application/json
+
+{
+    "account_id": "666666666",
+    "limit": "3434465"
+}

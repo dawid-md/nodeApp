@@ -3,8 +3,9 @@ import express from 'express'
 import mongoose from 'mongoose'
 const app = express()
 
-mongoose.connect('mongodb+srv://dawid-md:Creative123@cluster0.tcxhaad.mongodb.net/test')
+mongoose.connect('mongodb+srv://dawid-md:Creative123@cluster0.tcxhaad.mongodb.net/sample_analytics')
 const db = mongoose.connection
+db.useDb('accounts')
 db.on('error', (error) => console.log(error))
 db.once('open', () => console.log('connected to database'))
 app.use(express.json())
@@ -14,18 +15,38 @@ app.use('/routes', router)
 
 app.listen(3000, () => console.log('..................'))
 
-app.set('view engine', 'hbs')
 
-app.get('/', (req, res) => {
-    res.send('home')
-})
 
-app.get('/a', async function(req, res){
-    let sayu = await getDatafromBase()
-    res.render('index', {
-        userNumber: sayu
-    })
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.set('view engine', 'hbs')
+
+// app.get('/', (req, res) => {
+//     res.send('home')
+// })
+
+// app.get('/a', async function(req, res){
+//     let sayu = await getDatafromBase()
+//     res.render('index', {
+//         userNumber: sayu
+//     })
+// })
 
 
 
