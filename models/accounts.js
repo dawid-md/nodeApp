@@ -12,4 +12,4 @@ const accountSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('accountSchema', accountSchema)
+export default mongoose.model('accounts', accountSchema)    //pierwszy parametr to nazwa bazy
