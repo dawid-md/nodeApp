@@ -17,15 +17,13 @@
                 }
         const button = document.querySelector('#btnx');
         button.addEventListener('click', function(e) {
-            console.log('click')
-        
         fetch('add/', {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
             },
-            body: JSON.stringify({account_id: 3423423423, limit: '55555'})
+            body: JSON.stringify({value: 12345})
         }).then(function(response) {
             if(response.ok) {
                 console.log(response);
@@ -34,7 +32,6 @@
             throw new Error('Request failed.');
             });
         })
-
     </script>
     <h1>{{ message }}</h1>
 </body>

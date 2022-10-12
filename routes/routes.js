@@ -1,18 +1,15 @@
 import express from 'express'
 const router = express.Router()
-import accountSchema from '../models/accounts.js'
+import {digitSchema} from '../models/schemas.js'
 
 //get all
 router.get('/', async (req, res) => {
     try{
-        let myaccounts = await accountSchema.find()
-        //let messagea = json(myaccounts)
+        let myaccounts = await digitSchema.find()
         res.render('home', { message: myaccounts })
-
     } catch(err){
         res.status(500).json({message: err.message})
     }
-    //
 })
 
 //get one
@@ -22,13 +19,12 @@ router.get('/:id', (req, res) => {
 
 //create one
 router.post('/add', async (req, res) => {
-    let createdAccount = new accountSchema({
-        account_id: req.body.account_id,
-        limit: req.body.limit
+    let newNumber = new digitSchema({
+        value: req.body.value
     })
     try {
-        let newaccount = await createdAccount.save()
-        res.status(201).json(newaccount)
+        let number = await newNumber.save()
+        res.status(201).json(number)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -36,12 +32,10 @@ router.post('/add', async (req, res) => {
 
 //update
 router.patch('/', (req, res) => {
-    
 })
 
 //delete
 router.delete('/:id', (req, res) => {
-    
 })
 
-export default router
+export {router}

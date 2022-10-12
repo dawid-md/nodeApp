@@ -1,8 +1,8 @@
-GET http://localhost:3000/routes/
+GET http://localhost:3000/
 
 ###
 
-POST http://localhost:3000/routes/
+POST http://localhost:3000/routes/add
 Content-Type: application/json      
 
 {
@@ -10,4 +10,14 @@ Content-Type: application/json
     "limit": "3434465"
 }
 
-//empty lunie above Content-Type is critical
+###
+
+POST http://localhost:3000/add
+Content-Type: application/json      
+
+{
+    "value": 39
+}
+
+
+//empty line above Content-Type is critical

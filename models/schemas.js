@@ -12,4 +12,12 @@ const accountSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('accounts', accountSchema)    //pierwszy parametr to nazwa bazy
+const digitSch = new mongoose.Schema({
+    value: {
+        type: Number,
+        required: true
+    }
+})
+
+
+export const digitSchema = mongoose.model('digits', digitSch)   //pierwszy parametr to nazwa kolekcji
