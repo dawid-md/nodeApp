@@ -6,7 +6,9 @@ import accountSchema from '../models/accounts.js'
 router.get('/', async (req, res) => {
     try{
         let myaccounts = await accountSchema.find()
-        res.json(myaccounts)
+        //let messagea = json(myaccounts)
+        res.render('home', { message: myaccounts })
+
     } catch(err){
         res.status(500).json({message: err.message})
     }
@@ -19,7 +21,7 @@ router.get('/:id', (req, res) => {
 })
 
 //create one
-router.post('/', async (req, res) => {
+router.post('/add', async (req, res) => {
     let createdAccount = new accountSchema({
         account_id: req.body.account_id,
         limit: req.body.limit

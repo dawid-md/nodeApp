@@ -1,5 +1,4 @@
 import express from 'express'
-//import { client, database, getDatafromBase } from './database.js'
 import mongoose from 'mongoose'
 const app = express()
 
@@ -12,6 +11,7 @@ app.use(express.json())
 
 import router from './routes/routes.js'
 app.use('/routes', router)
+app.set('view engine', 'hbs')
 
 app.listen(3000, () => console.log('..................'))
 
