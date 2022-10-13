@@ -18,7 +18,7 @@ import {router} from './routes/routes.js'
 app.use(router)     //(routes, router)
 app.set('view engine', 'hbs')
 //app.use('/js', express.static(__dirname + 'public/js'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + 'public'));
 
 app.listen(3000, () => console.log('..................'))
 
