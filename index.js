@@ -2,6 +2,11 @@ import express from 'express'
 import mongoose from 'mongoose'
 const app = express()
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 mongoose.connect('mongodb+srv://dawid-md:Creative123@cluster0.tcxhaad.mongodb.net/sample_analytics')
 const db = mongoose.connection
 db.useDb('digits')
@@ -12,6 +17,8 @@ app.use(express.json())
 import {router} from './routes/routes.js'
 app.use(router)     //(routes, router)
 app.set('view engine', 'hbs')
+//app.use('/js', express.static(__dirname + 'public/js'));
+app.use(express.static(__dirname + '/public'));
 
 app.listen(3000, () => console.log('..................'))
 
