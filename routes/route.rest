@@ -16,7 +16,17 @@ POST http://localhost:3000/add
 Content-Type: application/json      
 
 {
-    "value": 39
+    "value": 50
+}
+
+###
+
+PUT http://localhost:3000/up
+Content-Type: application/json      
+
+{
+    "_id": "6347499c4d49f82493f14604",
+    "newVal": 5677464767
 }
 
 

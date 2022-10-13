@@ -6,7 +6,8 @@ import {digitSchema} from '../models/schemas.js'
 router.get('/', async (req, res) => {
     try{
         let myaccounts = await digitSchema.find()
-        res.render('home', { message: myaccounts })
+        console.log(myaccounts[0]['_id']);
+        res.render('home', { nID: myaccounts[0]['_id'], nVA: myaccounts[0]['value'] })
     } catch(err){
         res.status(500).json({message: err.message})
     }
@@ -31,7 +32,17 @@ router.post('/add', async (req, res) => {
 })
 
 //update
-router.patch('/', (req, res) => {
+router.put('/up', async (req, res) => {
+    let id = req.body._id       
+    let newValue = req.body.newVal
+    try {
+        let number = await digitSchema.findOne({ _id: id })
+        number.value = newValue
+        let newNumber = await number.save()
+        res.status(201).json(newNumber)
+    } catch (error) {
+        
+    }
 })
 
 //delete
