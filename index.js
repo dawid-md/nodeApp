@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 
 app.use(express.static('public'));
 
-mongoose.connect('mongodb+srv://dawid-md:Creative123@cluster0.tcxhaad.mongodb.net/sample_analytics')
+mongoose.connect('mongodb+srv://dawid-md:admin@cluster0.tcxhaad.mongodb.net/sample_analytics')
 const db = mongoose.connection
 db.useDb('digits')
 db.on('error', (error) => console.log(error))

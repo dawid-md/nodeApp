@@ -1,1 +1,1 @@
-console.log('finally working')
+console.log('external js')
