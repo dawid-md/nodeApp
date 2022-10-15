@@ -10,6 +10,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 <body>
+    <script src="client.js"></script>
     {{!-- <button class="btn btn-primary" id="btnx">Click</button> --}}
     <button class="btn btn-primary" id="incr">Increment</button>
 
@@ -32,7 +33,7 @@
             body: JSON.stringify({value: 12345})
         }).then(function(response) {
             if(response.ok) {
-                console.log(response);
+                //console.log(response);
                 return;
             }
             throw new Error('Request failed.');
@@ -42,7 +43,6 @@
 
         const buttonIn = document.querySelector('#incr');
         buttonIn.addEventListener('click', function(e) {
-            console.log('clicked')
         numberVA = parseInt(numberVA) + 100
         fetch('/up', {
             method: 'PUT',
@@ -54,7 +54,7 @@
             //body: ({_id: numberID, newVal: numberVA})
         }).then(function(response) {
             if(response.ok) {
-                console.log(response);
+                //console.log(response);
                 document.querySelector('h1').textContent = numberVA
                 return;
             }
@@ -63,6 +63,6 @@
         })
         
     </script>
-    <script src="/msc.js"></script>
+    
 </body>
 </html>
