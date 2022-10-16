@@ -6,7 +6,7 @@ import {digitSchema} from '../models/schemas.js'
 router.get('/', async (req, res) => {
     try{
         let myaccounts = await digitSchema.find()
-        res.render('home.hbs', { nID: myaccounts[0]['_id'], nVA: myaccounts[0]['value'] })
+        res.render('home.hbs', { nID: JSON.stringify(myaccounts[0]['_id']), nVA: myaccounts[0]['value']})
     } catch(err){
         res.status(500).json({message: err.message})
     }
@@ -45,16 +45,7 @@ router.put('/up', async (req, res) => {
 })
 
 //delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
 })
 
 export {router}
-
-
-
-
-
-// router.get('/', (req, res) => {
-//     console.log(__dirname);
-//     res.render('indexo.hbs');
-// });

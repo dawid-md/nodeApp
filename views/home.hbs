@@ -17,24 +17,22 @@
 <body>
     <script src="client.js"></script>
     <div class="container">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center text-center">
-            <h1>{{ nVA }}</h1>
-            <p class="d-none">{{ nID }}</p>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center text-center">
+                <h1>{{ nVA }}</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center text-center">
-            <button class="btn btn-primary" id="incr">Increment</button>
-            <button class="btn btn-secondary" id="decr">Decrement</button>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center text-center">
+                <button class="btn btn-primary" id="incr">Increment</button>
+                <button class="btn btn-secondary" id="decr">Decrement</button>
+            </div>
         </div>
-    </div>
-
     </div>
 
     <script>
         let numberVA = document.querySelector('h1').textContent
-        let numberID = document.querySelector('p').textContent
+        let numberID = {{{ nID }}}   //triple brackets with JSON.stringify() escape _id conversion
 
         {{!-- const button = document.querySelector('#btnx');
         button.addEventListener('New', function(e) {
@@ -52,7 +50,6 @@
             throw new Error('Request failed.');
             });
         }) --}}
-
 
         const buttonIn = document.querySelector('#incr');
         buttonIn.addEventListener('click', function(e) {
